@@ -1,3 +1,6 @@
 @tailwind base;
+img{
+    @apply w-full h-full object-cover
+}
 @tailwind components;
 @tailwind utilities;

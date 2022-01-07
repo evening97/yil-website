@@ -6,7 +6,7 @@
       ref="goodBox"
       @mousemove="move"
     >
-      <img class="w-full" src="../assets/img/small.jpg" alt />
+      <!-- <img class="w-full" src="../assets/img/small.jpg" alt /> -->
       <div
         class="absolute inset-0 w-[200px] h-[200px] bg-[yellow]/40 pointer-events-none"
         ref="mask"
@@ -14,13 +14,13 @@
       ></div>
     </div>
     <div class="absolute top-[50px] left-[400px] w-[400px] h-[400px] overflow-hidden">
-      <img
+      <!-- <img
         class="max-w-none absolute"
         :style="rTranslate"
         ref="imgSize"
         src="../assets/img/big.jpg"
         alt
-      />
+      /> -->
     </div>
   </div>
 </template>
