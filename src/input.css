@@ -2,5 +2,8 @@
 img{
     @apply w-full h-full object-cover
 }
+a{
+    @apply cursor-pointer
+}
 @tailwind components;
 @tailwind utilities;

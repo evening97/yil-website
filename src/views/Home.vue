@@ -47,6 +47,17 @@
             <li><img class="sm:w-[6.67vw] sm:h-[6.67vw] w-[18vw] h-[18vw]" src="../assets/img/erweima.png" alt=""></li>
           </ul>
         </div>
+        <div class="text-center py-[2.5vw] border-y border-solid border-black/70">
+          <p class="text-[0.8vw] text-[#4c4c4c]">24小时服务热线：020-25885288 Mail：yahua@gmil.com</p>
+        </div>
+        <div class="py-[2vw] px-[13.65vw] flex justify-between items-center">
+          <span class="text-[0.8vw] text-[#686868]">© 2017 YAHUA ALL RESERVED</span>
+          <div class="text-[0.8vw] text-[#686868]">
+            <a >法律申明</a>
+            <span class="text-[1.2vw] mx-[0.3vw]">|</span>
+            <a >网站地图</a>
+          </div>
+        </div>
       </footer>
     </div>
   </div>
@@ -130,9 +141,6 @@ export default {
 }
 </script>
 <style lang="postcss" scoped>
-  a{
-    @apply cursor-pointer
-  }
   #brand >li{
     @apply block mb-[1vw] flex-shrink-0 w-[21.56vw] h-[9.975vw]  sm:w-[10.78vw] sm:h-[6.65vw]
   }
