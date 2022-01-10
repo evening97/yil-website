@@ -1,6 +1,6 @@
 @tailwind base;
 img{
-    @apply w-full h-full object-cover
+    @apply w-full h-full object-cover cursor-pointer 
 }
 a{
     @apply cursor-pointer
