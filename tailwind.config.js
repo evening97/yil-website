@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily:{
+      youyuan:['youyuan']
+    }
   },
   plugins: [require('@tailwindcss/line-clamp')],
+
 }

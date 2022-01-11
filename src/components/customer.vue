@@ -4,7 +4,7 @@
         <h2 class="text-[1vw] font-bold tracking-[1.3vw] text-black/20">CUSTOMER</h2>
         <div class="w-[73.02vw] mx-auto">
             <ul id="brand" class="w-full h-full flex justify-between flex-wrap items-center">
-                <li v-for="(item, index) of customerImg" :key="index">
+                <li v-for="item of customerImg" :key="item.id">
                     <a>
                         <img :src="item.img" alt />
                     </a>

@@ -40,6 +40,11 @@ const routes = [
     name: "Service",
     component: () => import("../views/Service.vue"),
   },
+  {
+    path: "/more",
+    name: "More",
+    component: () => import("../components/more.vue"),
+  },
 ];
 
 const router = new VueRouter({

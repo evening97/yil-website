@@ -15,7 +15,7 @@
         class="w-screen sm:w-[73.02vw] absolute inset-0 sm:top-1/4 lg:top-1/2 text-center mx-auto flex flex-col sm:gap-3 gap-1 sm:px-[10vw] lg:-translate-y-1/4"
       >
         <h2 class="text-[3.96vw]">关于我们</h2>
-        <h3 class="text-[1vw] tracking-[1vw] text-[#d6d6d6] font-medium">ABOUT</h3>
+        <h3 class="text-[1vw] tracking-[1vw] text-[#d6d6d6] font-medium font-youyuan">ABOUT</h3>
         <h4 class="sm:text-[1.67vw] text-[0.5vw]">非凡卓越的印刷工艺和独领风骚的排版团队</h4>
         <p
           class="text-[0.92vw] tracking-widest"
@@ -47,64 +47,83 @@
 import Footer from "../components/footer.vue";
 import Nav from '../components/nav.vue'
 import Customer from '../components/customer.vue'
+import { nanoid } from "nanoid";
 export default {
   name: "Home",
   data() {
     return {
       customerImg: [
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer1.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer2.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer3.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer4.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer5.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer6.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer7.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer8.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer12.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer10.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer11.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer9.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer13.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer14.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer2.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer16.png", import.meta.url).href,
         },
 
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer7.png", import.meta.url).href,
         },
         {
+          id:nanoid(),
           img: new URL("../assets/img/footer8.png", import.meta.url).href,
         },
       ],

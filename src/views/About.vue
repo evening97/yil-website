@@ -37,7 +37,7 @@
             <!-- start -->
             <div class="flex flex-col xl:flex-row">
                 <div class=" xl:w-[19.17vw]  py-[2vw] px-[.5vw] inline-flex flex-col justify-evenly items-center gap-2"
-                        v-for="(item,index) of startData" :key="index">
+                        v-for="item of startData" :key="item.id">
                     <div class=" w-[6.98vw] h-[6.98vw]">
                         <img :src="item.img" alt="">
                     </div>
@@ -55,24 +55,28 @@
 <script>
 import Nav from '../components/nav.vue'
 import Footer from '../components/footer.vue'
+import { nanoid } from 'nanoid'
 export default {
     name: 'About',
     data() {
         return {
             startData:[
                 {
+                    id:nanoid(),
                     img: new URL("../assets/img/team1.png", import.meta.url).href,
                     name:'PAUL RICHARDSON',
                     occupation:'DESIGNER',
                     info:'I have related the substance of severalconversations l had with my master during thegreatest part of the time l had the honour to be in his service.'
                 },
                 {
+                    id:nanoid(),
                     img: new URL("../assets/img/team2.png", import.meta.url).href,
                     name:'DOMENIC FOX',
                     occupation:'DESIGNER',
                     info:'With what mingled joy and sorrow do l take upthe pen to write to my dearest friendl Oh, what a change between to-day and yesterday.'
                 },
                 {
+                    id:nanoid(),
                     img: new URL("../assets/img/team3.png", import.meta.url).href,
                     name:'CAMILLA BYRD',
                     occupation:'DESIGNER',

@@ -12,7 +12,7 @@
             >products</h3>
         </div>
         <!-- 产品展示 -->
-        <div class="h-[55.56vw] w-[72.94vw] mx-auto flex flex-wrap justify-between">
+        <div class="sm:h-[55.56vw] h-[75.56vw] w-[72.94vw] mx-auto flex flex-wrap justify-between mb-[2vw] ">
             <div
                 class="w-[21.88vw] h-[24.28vw] flex flex-col justify-around items-center"
                 v-for="element of products"
@@ -27,12 +27,12 @@
                     <h3 class="tracking-[0.13vw] text-[1.88vw]">{{ element.title }}</h3>
                     <div class="w-[3.13vw] h-[0.1vw] bg-[red] mx-auto"></div>
                     <h3
-                        class="tracking-[0.33vw] text-[#555555] text-[1.25vw] font-normal"
+                        class="tracking-[0.33vw] text-[#555555] text-[.5vw] sm:text-[1.25vw] font-normal"
                     >{{ element.info }}</h3>
                 </div>
             </div>
         </div>
-        <Customer :customerImg="customerImg" />
+        <Customer :customerImg="customerImg"/>
         <!-- 底部 -->
         <Footer/>
     </div>
@@ -41,6 +41,7 @@
 import Nav from '../components/nav.vue'
 import Footer from "../components/footer.vue";
 import Customer from '../components/customer.vue'
+import { nanoid } from 'nanoid';
 export default {
     name: 'About',
     data() {
@@ -77,60 +78,78 @@ export default {
                     info: 'molded pulp trays'
                 },
             ],
-            customerImg: [
+        customerImg: [
             {
-            img: new URL("../assets/img/footer11.png", import.meta.url).href,
+            id:nanoid(),
+            img: new URL("../assets/img/footer1.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer2.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer3.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer4.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer5.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer6.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer7.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer8.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer12.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer10.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer11.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer9.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer13.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer14.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer2.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer16.png", import.meta.url).href,
             },
 
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer7.png", import.meta.url).href,
             },
             {
+            id:nanoid(),
             img: new URL("../assets/img/footer8.png", import.meta.url).href,
             },
         ],
