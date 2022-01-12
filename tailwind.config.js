@@ -4,9 +4,9 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {}, 
     fontFamily:{
-      youyuan:['youyuan']
+      Shadows:['Shadows Into Light']
     }
   },
   plugins: [require('@tailwindcss/line-clamp')],

@@ -1,9 +1,19 @@
 @tailwind base;
-img{
-    @apply w-full h-full object-cover cursor-pointer 
-}
-a{
-    @apply cursor-pointer
-}
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+    @font-face{
+        font-family:'Shadows Into Light';
+        font-weight:700;
+        src: url('/public/font/Shadows_Into_Light/ShadowsIntoLight-Regular.ttf')
+    }   
+}
+@layer components {
+    img{
+        @apply w-full h-full object-cover cursor-pointer 
+    }
+    a{
+        @apply cursor-pointer
+    }
+}
