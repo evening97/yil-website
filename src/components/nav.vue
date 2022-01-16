@@ -1,5 +1,5 @@
 <template>
-    <nav class="w-full h-[4.17vw]  bg-white fixed top-0 left-0  z-[5] px-[3vw]">
+    <nav class="w-full h-[4.17vw]  bg-white fixed top-0 left-0  z-[5] px-[3vw] ">
         <div class=" w-full h-full flex justify-between relative">
             <!-- 左边 -->
             <div class="w-[6vw] h-[4.17vw]">

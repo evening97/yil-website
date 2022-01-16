@@ -1,0 +1,110 @@
+[
+    {
+        "id": "100",
+        "name": "手机",
+        "ulData": [
+            {
+                "id": "110",
+                "liData": [
+                    {
+                        "id": "111",
+                        "text": "小米1",
+                        "img": "../assets/img/qiye1.png"
+                    },
+                    {
+                        "id": "112",
+                        "text": "小米1",
+                        "img": "../assets/img/qiye1.png"
+                    },
+                    {
+                        "id": "113",
+                        "text": "小米1",
+                        "img": "../assets/img/qiye1.png"
+                    },
+                    {
+                        "id": "114",
+                        "text": "小米1",
+                        "img": "../assets/img/qiye1.png"
+                    },
+                    {
+                        "id": "115",
+                        "text": "小米1",
+                        "img": "../assets/img/qiye1.png"
+                    },
+                    {
+                        "id": "116",
+                        "text": "小米1",
+                        "img": "../assets/img/qiye1.png"
+                    }
+                ]
+            },
+            {
+                "id": "120",
+                "liData": [
+                    {
+                        "id": "111",
+                        "text": "小米2",
+                        "img": "../assets/img/qiye2.png"
+                    },
+                    {
+                        "id": "112",
+                        "text": "小米2",
+                        "img": "../assets/img/qiye2.png"
+                    },
+                    {
+                        "id": "113",
+                        "text": "小米3",
+                        "img": "../assets/img/qiye2.png"
+                    },
+                    {
+                        "id": "114",
+                        "text": "小米4",
+                        "img": "../assets/img/qiye2.png"
+                    },
+                    {
+                        "id": "115",
+                        "text": "小米5",
+                        "img": "../assets/img/qiye2.png"
+                    },
+                    {
+                        "id": "116",
+                        "text": "小米6",
+                        "img": "../assets/img/qiye2.png"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "201",
+        "name": "电视"
+    },
+    {
+        "id": "301",
+        "name": "笔记本 平板"
+    },
+    {
+        "id": "401",
+        "name": "出行 穿戴"
+    },
+    {
+        "id": "501",
+        "name": "智能 路由器"
+    },
+    {
+        "id": "601",
+        "name": "电源 配件"
+    },
+    {
+        "id": "701",
+        "name": "健康 儿童"
+    },
+    {
+        "id": "801",
+        "name": "耳机 音箱"
+    },
+    {
+        "id": "901",
+        "name": "生活 箱包"
+    }
+]

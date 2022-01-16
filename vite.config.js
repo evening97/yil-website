@@ -6,42 +6,51 @@ import {
     visualizer
 } from 'rollup-plugin-visualizer';
 import viteCompression from 'vite-plugin-compression';
-// import viteImagemin from 'vite-plugin-imagemin';
+import viteImagemin from 'vite-plugin-imagemin';
 import path from 'path'
 export default {
     plugins: [createVuePlugin(), htmlTemplate(), visualizer(), viteCompression(),
-        // viteImagemin({
-        //     gifsicle: {
-        //         optimizationLevel: 7,
-        //         interlaced: false,
-        //     },
-        //     optipng: {
-        //         optimizationLevel: 7,
-        //     },
-        //     mozjpeg: {
-        //         quality: 20,
-        //     },
-        //     pngquant: {
-        //         quality: [0.8, 0.9],
-        //         speed: 4,
-        //     },
-        //     svgo: {
-        //         plugins: [{
-        //                 name: 'removeViewBox',
-        //             },
-        //             {
-        //                 name: 'removeEmptyAttrs',
-        //                 active: false,
-        //             },
-        //         ],
-        //     },
-        // }),
+        //图片压缩
+        viteImagemin({
+            gifsicle: {
+                optimizationLevel: 7,
+                interlaced: false,
+            },
+            optipng: {
+                optimizationLevel: 7,
+            },
+            mozjpeg: {
+                quality: 20,
+            },
+            pngquant: {
+                quality: [0.8, 0.9],
+                speed: 4,
+            },
+            svgo: {
+                plugins: [{
+                        name: 'removeViewBox',
+                    },
+                    {
+                        name: 'removeEmptyAttrs',
+                        active: false,
+                    },
+                ],
+            },
+        }),
     ],
     base: './',
     server: {
         host: '0.0.0.0',
         port: 8080,
-        open: true,
+        open: true, 
+        proxy: {
+            // ^/fallback/.*
+            "/api": {
+                target: "https://acg.toubiec.cn/random.php",
+                changeOrigin: true,
+                // rewrite: (path) => path.replace(/^\/api/, ""),
+            },
+        }
     },
     build: {
         minify: 'terser',

@@ -1,260 +1,116 @@
 <template>
-  <div class="w-screen h-[460px]">
-    <!-- 小米商城列表 -->
-    <div class="w-[1226px] h-[460px] mx-auto">
-      <ul
-        class="w-[234px] h-[460px] py-[20px] bg-[#696565] flex justify-between items-end flex-col cursor-pointer relative"
-        id="product"
-      >
-        <li class="group">
-          <span class="text-white ml-[30px]">手机</span>
-          <span class="text-white mr-[14px]">></span>
-          <div
-            class="h-[460px] whitespace-pre shadow-xl border-[1px] border-solid border-black/10 absolute top-0 left-[234px] hidden group-hover:block"
+  <div class>
+    <div class="w-screen h-[460px]">
+      <!-- 小米商城列表 -->
+      <div class="w-[1226px] h-[460px] mx-auto">
+        <ul
+          class="w-[234px] h-[460px] py-[20px] bg-[#696565] flex justify-between items-end flex-col cursor-pointer relative"
+          id="product"
+          @click="toSearch"
+        >
+          <li
+            class="group w-[234px]"
+            v-for=" (item,index) of xiaoMiData"
+            :key="item.id"
+            @mouseenter="moveIn(index)"
+            @mouseleave="currentIndex = -1"
           >
-            <!-- 手机 -->
-            <ul
-              class="w-[225px] ml-[23px] h-full inline-block"
-              v-for="(item,index) of iphone"
-              :key="index"
+            <a>
+              <span class="text-white ml-[30px]">{{ item.name }}</span>
+              <span class="text-white mr-[14px]">></span>
+            </a>
+            <div
+              class="h-[460px] whitespace-pre shadow-xl border-[1px] border-solid border-black/10 absolute top-0 left-[234px]"
+              :class="{ hidden: currentIndex != index }"
             >
-              <li
-                class="w-full h-[40px] py-[18px] box-content flex items-center gap-[12px]"
-                v-for="(element) of item"
-                :key="element.text"
+              <!-- 右边展示栏 -->
+              <ul
+                class="w-[225px] ml-[23px] h-full inline-block overflow-hidden"
+                v-for=" ulElement of item.ulData"
+                :key="ulElement.id"
               >
-                <div class="w-[40px] h-[40px] inline-block">
-                  <img class="w-[40px] h-[40px] object-cover" :src="element.img" alt />
-                </div>
-                <span class="text-[14px] font-bold hover:text-[#ff6700]">{{ element.text }}</span>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="group">
-          <span class="text-white ml-[30px]">电视</span>
-          <span class="text-white mr-[14px]">></span>
-          <div
-            class="h-[460px] whitespace-pre shadow-xl border-[1px] border-solid border-black/10 absolute top-0 left-[234px] hidden group-hover:block"
-          >
-            <!-- 电视机 -->
-            <ul
-              class="w-[225px] ml-[23px] h-full inline-block"
-              v-for="(item,index) of watchTv"
-              :key="index"
-            >
-              <li
-                class="w-full h-[40px] py-[18px] box-content flex items-center gap-[12px]"
-                v-for="(element) of item"
-                :key="element.text"
-              >
-                <div class="w-[40px] h-[40px] inline-block">
-                  <img class="w-[40px] h-[40px] object-cover" :src="element.img" alt />
-                </div>
-                <span class="text-[14px] font-bold hover:text-[#ff6700]">{{ element.text }}</span>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="group">
-          <span class="text-white ml-[30px]">笔记本 平板</span>
-          <span class="text-white mr-[14px]">></span>
-          <div
-            class="h-[460px] whitespace-nowrap  shadow-xl border-[1px] border-solid border-black/10 absolute top-0 left-[234px] hidden group-hover:block"
-          >
-            <!-- 笔记本 -->
-            <ul
-              class="w-[225px] ml-[23px] h-full inline-block  align-top"
-              v-for="(item,index) of notebook"
-              :key="index"
-            >
-              <li
-                class="w-full h-[40px] py-[18px] box-content flex items-center gap-[12px]"
-                v-for="(element) of item"
-                :key="element.text"
-              >
-                <div class="w-[40px] h-[40px] inline-block">
-                  <img class="w-[40px] h-[40px] object-cover" :src="element.img" alt />
-                </div>
-                <span class="text-[14px] font-bold hover:text-[#ff6700]">{{ element.text }}</span>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="group">
-          <span class="text-white ml-[30px]">出行 穿戴</span>
-          <span class="text-white mr-[14px]">></span>
-          <div
-            class="h-[460px] whitespace-nowrap  shadow-xl border-[1px] border-solid border-black/10 absolute top-0 left-[234px] hidden group-hover:block"
-          >
-            <!-- 笔记本 -->
-            <ul
-              class="w-[225px] ml-[23px] h-full inline-block  align-top"
-              v-for="(item,index) of runTest"
-              :key="index"
-            >
-              <li
-                class="w-full h-[40px] py-[18px] box-content flex items-center gap-[12px]"
-                v-for="(element) of item"
-                :key="element.text"
-              >
-                <div class="w-[40px] h-[40px] inline-block">
-                  <img class="w-[40px] h-[40px] object-cover" :src="element.img" alt />
-                </div>
-                <span class="text-[14px] font-bold hover:text-[#ff6700]">{{ element.text }}</span>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="group">
-          <span class="text-white ml-[30px]">智能 路由器</span>
-          <span class="text-white mr-[14px]">></span>
-          <div
-            class="w-[992px] h-[460px] bg-white shadow-xl border-[1px] border-solid border-black/10 absolute top-0 left-[234px] hidden group-hover:block"
-          ></div>
-        </li>
-        <li class="group">
-          <span class="text-white ml-[30px]">电源 配件</span>
-          <span class="text-white mr-[14px]">></span>
-          <div
-            class="w-[992px] h-[460px] bg-white shadow-xl border-[1px] border-solid border-black/10 absolute top-0 left-[234px] hidden group-hover:block"
-          ></div>
-        </li>
-        <li class="group">
-          <span class="text-white ml-[30px]">健康 儿童</span>
-          <span class="text-white mr-[14px]">></span>
-          <div
-            class="w-[992px] h-[460px] bg-white shadow-xl border-[1px] border-solid border-black/10 absolute top-0 left-[234px] hidden group-hover:block"
-          ></div>
-        </li>
-        <li class="group">
-          <span class="text-white ml-[30px]">耳机 音箱</span>
-          <span class="text-white mr-[14px]">></span>
-          <div
-            class="w-[992px] h-[460px] bg-white shadow-xl border-[1px] border-solid border-black/10 absolute top-0 left-[234px] hidden group-hover:block"
-          ></div>
-        </li>
-        <li class="group">
-          <span class="text-white ml-[30px]">生活 箱包</span>
-          <span class="text-white mr-[14px]">></span>
-          <div
-            class="w-[992px] h-[460px] bg-white shadow-xl border-[1px] border-solid border-black/10 absolute top-0 left-[234px] hidden group-hover:block"
-          ></div>
-        </li>
-      </ul>
+                <li
+                  class="w-full h-[40px] py-[18px] box-content"
+                  v-for="liElement of ulElement.liData"
+                  :key="liElement.id"
+                >
+                  <!-- 图片盒子 -->
+                  <a
+                    href="javascript:;"
+                    :data-elementId="liElement.id"
+                    :data-elementName="liElement.text"
+                    class="w-full h-[40px] flex items-center gap-[22px]"
+                  >
+                    <img class="w-[40px] h-[40px] object-cover" :src="liElement.img" alt />
+                    <span class="text-[14px] font-bold hover:text-[#ff6700]">{{ liElement.text }}</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="h-16 leading-[4rem] bg-green-400 relative text-center">
+      <input
+        type="text"
+        name
+        id
+        class="border-cyan-300 border-2 text-teal-300 absolute top-1/2 left1/2 -translate-x-1/2 -translate-y-1/2"
+      />
+      <i
+        class="ri-search-line text-[4.5vw] sm:text-[1vw] absolute left-[64%] sm:left-[54%] cursor-pointer"
+      ></i>
     </div>
   </div>
 </template>
 
 <script>
+import throttle from 'lodash/throttle'
+import { mapState } from "vuex"
 export default {
   name: 'HelloWorld',
   data() {
     return {
-      iphone: [
-        [
-          { text: 'Xiaomi 12 Pro', img: new URL(`../assets/img/ia_100004070.png`, import.meta.url).href },
-          { text: 'Xiaomi 12', img: new URL(`../assets/img/ia_100004071.png`, import.meta.url).href },
-          { text: 'Xiaomi 12X', img: new URL(`../assets/img/ia_100004072.png`, import.meta.url).href },
-          { text: 'Xiaomi 11 青春活力版', img: new URL(`../assets/img/ia_100004073.png`, import.meta.url).href },
-          { text: 'Note 11 Pro 系列', img: new URL(`../assets/img/ia_100004074.png`, import.meta.url).href },
-          { text: 'Note 11 4G', img: new URL(`../assets/img/ia_100004074.png`, import.meta.url).href }
-        ],
-        [
-          { text: 'Note 11 5G', img: new URL(`../assets/img/ia_100004076.png`, import.meta.url).href },
-          { text: 'Redmi K40', img: new URL(`../assets/img/ia_100004077.png`, import.meta.url).href },
-          { text: 'Xiaomi Civi', img: new URL(`../assets/img/ia_100004078.png`, import.meta.url).href },
-          { text: 'Xiaomi MIX 4', img: new URL(`../assets/img/ia_100004079.png`, import.meta.url).href },
-          { text: 'Xiaomi MIX FOLD', img: new URL(`../assets/img/ia_100004080.png`, import.meta.url).href },
-          { text: 'Xiaomi 11 Ultra', img: new URL(`../assets/img/ia_100004080.png`, import.meta.url).href }
-        ],
-        [
-          { text: 'Xiaomi 11 Pro', img: new URL(`../assets/img/ia_100004082.png`, import.meta.url).href },
-          { text: 'Xiaomi 11', img: new URL(`../assets/img/ia_100004083.png`, import.meta.url).href },
-          { text: 'Xiaomi 10S', img: new URL(`../assets/img/ia_100004084.png`, import.meta.url).href },
-          { text: 'K40 游戏增强版', img: new URL(`../assets/img/ia_100004085.png`, import.meta.url).href },
-          { text: 'K40 Pro 系列', img: new URL(`../assets/img/ia_100004086.png`, import.meta.url).href },
-          { text: 'Note 10 5G', img: new URL(`../assets/img/ia_100004086.png`, import.meta.url).href }
-        ],
-        [
-          { text: 'Note 10 Pro', img: new URL(`../assets/img/ia_100004088.png`, import.meta.url).href },
-          { text: 'Redmi 9A', img: new URL(`../assets/img/ia_100004089.jpg`, import.meta.url).href },
-          { text: 'Xiaomi 11 青春', img: new URL(`../assets/img/ia_100004090.png`, import.meta.url).href },
-          { text: '黑鲨4S Pro', img: new URL(`../assets/img/ia_100004093.png`, import.meta.url).href },
-          { text: '黑鲨4S', img: new URL(`../assets/img/ia_100004070.png`, import.meta.url).href },
-          { text: 'Redmi Note 9 4G', img: new URL(`../assets/img/ia_100004071.png`, import.meta.url).href }
-        ]
-      ],
-      watchTv: [
-        [
-          { text: 'Xiaomi 12 Pro', img: new URL(`../assets/img/ia_100004070.png`, import.meta.url).href },
-          { text: 'Xiaomi 12', img: new URL(`../assets/img/ia_100004071.png`, import.meta.url).href },
-          { text: 'Xiaomi 12X', img: new URL(`../assets/img/ia_100004072.png`, import.meta.url).href },
-          { text: 'Xiaomi 11 青春活力版', img: new URL(`../assets/img/ia_100004073.png`, import.meta.url).href },
-          { text: 'Note 11 Pro 系列', img: new URL(`../assets/img/ia_100004074.png`, import.meta.url).href },
-          { text: 'Note 11 4G', img: new URL(`../assets/img/ia_100004074.png`, import.meta.url).href }
-        ],
-        [
-          { text: 'Note 11 5G', img: new URL(`../assets/img/ia_100004076.png`, import.meta.url).href },
-          { text: 'Redmi K40', img: new URL(`../assets/img/ia_100004077.png`, import.meta.url).href },
-          { text: 'Xiaomi Civi', img: new URL(`../assets/img/ia_100004078.png`, import.meta.url).href },
-          { text: 'Xiaomi MIX 4', img: new URL(`../assets/img/ia_100004079.png`, import.meta.url).href },
-          { text: 'Xiaomi MIX FOLD', img: new URL(`../assets/img/ia_100004080.png`, import.meta.url).href },
-          { text: 'Xiaomi 11 Ultra', img: new URL(`../assets/img/ia_100004080.png`, import.meta.url).href }
-        ],
-        [
-          { text: 'Xiaomi 11 Pro', img: new URL(`../assets/img/ia_100004082.png`, import.meta.url).href },
-          { text: 'Xiaomi 11', img: new URL(`../assets/img/ia_100004083.png`, import.meta.url).href },
-          { text: 'Xiaomi 10S', img: new URL(`../assets/img/ia_100004084.png`, import.meta.url).href },
-          { text: 'K40 游戏增强版', img: new URL(`../assets/img/ia_100004085.png`, import.meta.url).href },
-          { text: 'K40 Pro 系列', img: new URL(`../assets/img/ia_100004086.png`, import.meta.url).href },
-          { text: 'Note 10 5G', img: new URL(`../assets/img/ia_100004086.png`, import.meta.url).href }
-        ]
-      ],
-      notebook: [
-        [
-          { text: 'Xiaomi 12 Pro', img: new URL(`../assets/img/ia_100004070.png`, import.meta.url).href },
-          { text: 'Xiaomi 12', img: new URL(`../assets/img/ia_100004071.png`, import.meta.url).href },
-          { text: 'Xiaomi 12X', img: new URL(`../assets/img/ia_100004072.png`, import.meta.url).href },
-          { text: 'Xiaomi 11 青春活力版', img: new URL(`../assets/img/ia_100004073.png`, import.meta.url).href },
-          { text: 'Note 11 Pro 系列', img: new URL(`../assets/img/ia_100004074.png`, import.meta.url).href },
-          { text: 'Note 11 4G', img: new URL(`../assets/img/ia_100004074.png`, import.meta.url).href }
-        ],
-        [
-          { text: 'Note 11 5G', img: new URL(`../assets/img/ia_100004076.png`, import.meta.url).href },
-          { text: 'Redmi K40', img: new URL(`../assets/img/ia_100004077.png`, import.meta.url).href },
-          { text: 'Xiaomi Civi', img: new URL(`../assets/img/ia_100004078.png`, import.meta.url).href },
-          { text: 'Xiaomi MIX 4', img: new URL(`../assets/img/ia_100004079.png`, import.meta.url).href },
-          { text: 'Xiaomi MIX FOLD', img: new URL(`../assets/img/ia_100004080.png`, import.meta.url).href },
-          { text: 'Xiaomi 11 Ultra', img: new URL(`../assets/img/ia_100004080.png`, import.meta.url).href }
-        ]
-      ],
-      runTest: [
-        [
-          { text: 'Xiaomi 12 Pro', img: new URL(`../assets/img/ia_100004070.png`, import.meta.url).href },
-          { text: 'Xiaomi 12', img: new URL(`../assets/img/ia_100004071.png`, import.meta.url).href },
-          { text: 'Xiaomi 12X', img: new URL(`../assets/img/ia_100004072.png`, import.meta.url).href },
-          { text: 'Xiaomi 11 青春活力版', img: new URL(`../assets/img/ia_100004073.png`, import.meta.url).href },
-          { text: 'Note 11 Pro 系列', img: new URL(`../assets/img/ia_100004074.png`, import.meta.url).href },
-          { text: 'Note 11 4G', img: new URL(`../assets/img/ia_100004074.png`, import.meta.url).href }
-        ],
-        [
-          { text: 'Note 11 5G', img: new URL(`../assets/img/ia_100004076.png`, import.meta.url).href },
-          { text: 'Redmi K40', img: new URL(`../assets/img/ia_100004077.png`, import.meta.url).href },
-          { text: 'Xiaomi Civi', img: new URL(`../assets/img/ia_100004078.png`, import.meta.url).href },
-        ]
-      ],
+      currentIndex: 1,
     }
   },
+  methods: {
+    moveIn: throttle(function (index) {
+      this.currentIndex = index
+    }, 20, { 'trailing': false }),
+    toSearch(event) {
+      let targetNode = event.target.parentNode;
+      let data = targetNode.dataset
+      let {elementid,elementname} = data
+      if (elementname) {
+        let location = {
+          name:'search'
+        }
+        let query = {
+          elementId:elementid,
+          elementName:elementname,
+        }
+        location.query = query
+        //传递目标路由组件不能时懒加载路由组件 路由组件名也必须相同
+        this.$router.push(location)
+      }
+    }
+  },
+  computed:{
+    ...mapState({
+      xiaoMiData:state => state.xiaoMi.xiaoMiData
+    })
+  },
+  mounted() {
+    this.$store.dispatch('getXiaoMiData')
+  },
 }
-  // 解析地址栏
-  // let paramsObj = {};
-  // location.search.slice(1).split('&').forEach(item => paramsObj[item.split('=')[0]] = item.split('='[1]))
 
 </script>
 
 <style scoped>
-#product > li {
+#product > li > a {
   /* background-color: 696565; */
   flex-grow: 1;
   width: 100%;

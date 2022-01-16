@@ -4,8 +4,8 @@
         <div class="h-[52.08vw] w-screen overflow-hidden">
             <div v-swiper:mySwiper_2="swiperOption" id="bottomBanner" class="cursor-pointer relative" @mousemove="move_2" @mouseout="out_2">
                 <div class="swiper-wrapper bg-green-500">
-                    <div class="swiper-slide" :key="banner" v-for="banner in topBanners">
-                        <img class=" w-full h-full object-contain" :src="banner" />
+                    <div class="swiper-slide" :key="banner.id" v-for="banner in bannerList">
+                        <img class=" w-full h-full object-contain" :src="banner.img" />
                     </div>
                 </div>
                 <div class="swiper-pagination absolute top-[44vw] sm:top-[48vw]" slot="pagination"></div>
@@ -52,19 +52,15 @@
 <script>
 import Nav from '../components/nav.vue'
 import Footer from '../components/footer.vue'
+import { mapState } from 'vuex'
 export default {
     name: 'About',
     data() {
         return {
-            banners: [new URL("../assets/img/case4.png", import.meta.url).href,
+            banners: [
+            new URL("../assets/img/case4.png", import.meta.url).href,
             new URL("../assets/img/case5.png", import.meta.url).href,
             new URL("../assets/img/case6.png", import.meta.url).href
-            ],
-            topBanners:[
-                new URL("../assets/img/banner.png", import.meta.url).href,
-                new URL("../assets/img/banner2.png", import.meta.url).href,
-                new URL("../assets/img/banner3.png", import.meta.url).href,
-                new URL("../assets/img/banner5.png", import.meta.url).href,
             ],
             swiperOption: {
                 loop : true,
@@ -101,8 +97,22 @@ export default {
         }
     },
     mounted() {
+        //从vuex当中把数据捞到vue组件当中使用
+        //从vuex拿到的数据(state 和 getters 当中的东西)，都在computed当中使用
+        //从vuex拿到的数据(mutations 和 actions当中的东西)，都在methods当中使用
+        // this.$store.dispatch('getHomeBannerImg')
+        this.$store.dispatch('getBannerList')
         this.mySwiper.slideTo(3, 1000, false)
-        this.mySwiper_2.slideTo(3, 1000, false)
+        this.mySwiper_2.slideTo(1, 1000, false)
+    },
+    computed:{
+        //数据是总state当中的数据 
+        ...mapState({
+            homeBannerImg:state => state.home.homeBannerImg
+        }),
+        ...mapState({
+            bannerList:state => state.home.bannerList
+        })
     },
     components: {
         Nav, Footer

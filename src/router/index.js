@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-
+import search from '../pages/search.vue'
 Vue.use(VueRouter);
 
 const routes = [
@@ -44,6 +44,16 @@ const routes = [
     path: "/more",
     name: "More",
     component: () => import("../components/more.vue"),
+  },
+  {
+    path: "/hello",
+    name: "heloo",
+    component: () => import("../components/HelloWorld.vue"),
+  },
+  {
+    path: "/search",
+    name: "search",
+    component: search
   },
 ];
 

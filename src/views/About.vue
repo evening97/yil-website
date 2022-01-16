@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-[4.17vw] overflow-hidden">
+    <div class="mt-[4.17vw] overflow-hidden relative">
         <Nav />
         <div class="w-screen h-[52.08vw]">
             <img src="../assets/img/banner5.png" alt />
@@ -50,11 +50,16 @@
         </div>
         <!-- 底部 -->
         <Footer/>
+        <!-- <div class=" w-screen h-screen bg-white/70 absolute top-0">
+            <loading></loading>
+        </div> -->
+        <!-- <img class=" w-screen h-screen" src="https://cdn.seovx.com/ha/?mom=302" alt=""> -->
     </div>
 </template>
 <script>
 import Nav from '../components/nav.vue'
 import Footer from '../components/footer.vue'
+import loading from './loading.vue'
 import { nanoid } from 'nanoid'
 export default {
     name: 'About',
@@ -86,7 +91,7 @@ export default {
         }
     },
     components: {
-        Nav,Footer
+        Nav,Footer,loading
     },
     methods: {
         line(event){
