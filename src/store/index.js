@@ -4,6 +4,9 @@ import Vuex from 'vuex'
 import home from './home'
 import about from './about'
 import xiaoMi from './xiaoMi'
+import product from './product'
+import customer from './customer'
+import programme from './programme'
 
 Vue.use(Vuex)
 const state = {
@@ -20,7 +23,7 @@ export default new Vuex.Store({
   mutations,
   actions,
   modules:{
-    home,about,xiaoMi
+    home,about,xiaoMi,product,customer,programme,
   },
   getters :{
     // 公共数据

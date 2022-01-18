@@ -43,14 +43,6 @@ export default {
         host: '0.0.0.0',
         port: 8080,
         open: true, 
-        proxy: {
-            // ^/fallback/.*
-            "/api": {
-                target: "https://acg.toubiec.cn/random.php",
-                changeOrigin: true,
-                // rewrite: (path) => path.replace(/^\/api/, ""),
-            },
-        }
     },
     build: {
         minify: 'terser',
@@ -72,11 +64,11 @@ export default {
     define: {
         'process.env': {},
     },
-    resolve: {
-        alias: {
-            '@': path.join(__dirname, 'src'),
-            '~': path.join(__dirname, 'node_modules'), // 这个通常给 css import 用的
-            // '/img': './src/assets/img' //图片 
-        },
-    },
+    // resolve: {
+    //     alias: {
+    //         '@': path.join(__dirname, 'src'),
+    //         '~': path.join(__dirname, 'node_modules'), // 这个通常给 css import 用的
+    //         // '/img': './src/assets/img' //图片 
+    //     },
+    // },
 }

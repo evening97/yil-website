@@ -5,8 +5,7 @@ import store from './store'
 import '../node_modules/remixicon/fonts/remixicon.css'
 import './assets/output.css'
 //轮播图
-// import { reqCategoryList } from './api'
-// reqCategoryList()
+
 import './api'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css' 

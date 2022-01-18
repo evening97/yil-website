@@ -36,7 +36,7 @@
       >CASE SHOW</button>
     </div>
     <!--合作伙伴-->
-    <Customer :customerImg="customerImg" />
+    <Customer/>
     <!-- 底部 -->
     <Footer />
   </div>
@@ -47,86 +47,10 @@
 import Footer from "../components/footer.vue";
 import Nav from '../components/nav.vue'
 import Customer from '../components/customer.vue'
-import { nanoid } from "nanoid";
 export default {
   name: "Home",
   data() {
     return {
-      customerImg: [
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer1.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer2.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer3.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer4.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer5.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer6.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer7.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer8.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer12.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer10.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer11.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer9.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer13.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer14.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer2.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer16.png", import.meta.url).href,
-        },
-
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer7.png", import.meta.url).href,
-        },
-        {
-          id:nanoid(),
-          img: new URL("../assets/img/footer8.png", import.meta.url).href,
-        },
-      ],
     };
   },
   components: {

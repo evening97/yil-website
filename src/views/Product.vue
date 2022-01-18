@@ -2,7 +2,7 @@
     <div class="mt-[4.17vw] overflow-hidden">
         <Nav/>
         <div class="w-screen h-[40.57vw]">
-            <img src="../assets/img/banner6.png" alt />
+            <img :src="productTopImg.url" alt />
         </div>
         <!-- 产品中心 -->
         <div class="text-center py-[4.46vw]">
@@ -15,12 +15,12 @@
         <div class="sm:h-[55.56vw] h-[75.56vw] w-[72.94vw] mx-auto flex flex-wrap justify-between mb-[2vw] ">
             <div
                 class="w-[21.88vw] h-[24.28vw] flex flex-col justify-around items-center"
-                v-for="element of products"
-                :key="element"
+                v-for="(element ,index) of products"
+                :key="element.id"
             >
                 <!-- 图片 -->
                 <div class="w-full h-[15.63vw]">
-                    <img :src="element.img" alt />
+                    <img :src="productsImg[index]" alt />
                 </div>
                 <!-- 文字简介 -->
                 <div class="w-full h-[4.69vw] mx-auto text-center">
@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <Customer :customerImg="customerImg"/>
+        <Customer/>
         <!-- 底部 -->
         <Footer/>
     </div>
@@ -42,122 +42,57 @@ import Nav from '../components/nav.vue'
 import Footer from "../components/footer.vue";
 import Customer from '../components/customer.vue'
 import { nanoid } from 'nanoid';
+import { mapState } from 'vuex';
 export default {
     name: 'About',
     data() {
         return {
             products: [
                 {
-                    img: new URL("../assets/img/product1.png", import.meta.url).href,
+                    id:nanoid(),
                     title: '彩盒印刷',
                     info: 'color boxes'
                 },
                 {
-                    img: new URL("../assets/img/product2.png", import.meta.url).href,
+                    id:nanoid(),
                     title: '礼盒',
                     info: 'gift boxes'
                 },
                 {
-                    img: new URL("../assets/img/product3.png", import.meta.url).href,
+                    id:nanoid(),
                     title: '说明书',
                     info: 'manuals'
                 },
                 {
-                    img: new URL("../assets/img/product4.png", import.meta.url).href,
+                    id:nanoid(),
                     title: '不干胶贴纸',
                     info: 'stickers'
                 },
                 {
-                    img: new URL("../assets/img/product5.png", import.meta.url).href,
+                    id:nanoid(),
                     title: '瓦楞纸箱',
                     info: 'corrugated boxes'
                 },
                 {
-                    img: new URL("../assets/img/product6.png", import.meta.url).href,
+                    id:nanoid(),
                     title: '纸托',
                     info: 'molded pulp trays'
                 },
             ],
-        customerImg: [
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer1.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer2.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer3.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer4.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer5.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer6.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer7.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer8.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer12.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer10.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer11.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer9.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer13.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer14.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer2.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer16.png", import.meta.url).href,
-            },
-
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer7.png", import.meta.url).href,
-            },
-            {
-            id:nanoid(),
-            img: new URL("../assets/img/footer8.png", import.meta.url).href,
-            },
-        ],
         }
     },
     components: {
         Nav, Footer,Customer
-    }
+    },
+    computed:{
+        ...mapState({
+            productTopImg:state => state.product.productTopImg,
+            productsImg:state => state.product.productImg
+        })
+    },
+    mounted() {
+        this.$store.dispatch('getProductImg')
+    },
 }
 </script>
 <style lang="postcss" scoped>

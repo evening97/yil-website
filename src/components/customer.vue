@@ -4,23 +4,31 @@
         <h2 class="text-[1vw] font-bold tracking-[1.3vw] text-black/20">CUSTOMER</h2>
         <div class="w-[73.02vw] mx-auto">
             <ul id="brand" class="w-full h-full flex justify-between flex-wrap items-center">
-                <li v-for="item of customerImg" :key="item.id">
+                <li v-for="item of customerImgs" :key="item.id">
                     <a>
-                        <img :src="item.img" alt />
+                        <img :src="item.url" alt />
                     </a>
                 </li>
             </ul>
         </div>
     </div>
 </template>
-<script>
+<script>import { mapState } from "vuex"
+
 export default {
     name:'Customer',
-    props:['customerImg'],
     data() {
         return {
         }
     },
+    mounted() {
+        this.$store.dispatch('getCustomerImg')
+    },
+    computed:{
+        ...mapState({
+            customerImgs:state => state.customer.customerImg
+        })
+    }
 }
 </script>
 <style lang="postcss" scoped>

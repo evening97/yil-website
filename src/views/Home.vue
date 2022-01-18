@@ -4,8 +4,8 @@
         <div class="h-[52.08vw] w-screen overflow-hidden">
             <div v-swiper:mySwiper_2="swiperOption" id="bottomBanner" class="cursor-pointer relative" @mousemove="move_2" @mouseout="out_2">
                 <div class="swiper-wrapper bg-green-500">
-                    <div class="swiper-slide" :key="banner.id" v-for="banner in bannerList">
-                        <img class=" w-full h-full object-contain" :src="banner.img" />
+                    <div class="swiper-slide" :key="banner.id" v-for="banner in homeBannerImg">
+                        <img class=" w-full h-full object-contain" :src="banner.url" />
                     </div>
                 </div>
                 <div class="swiper-pagination absolute top-[44vw] sm:top-[48vw]" slot="pagination"></div>
@@ -15,14 +15,8 @@
         </div>
         <!-- top -->
         <div class="w-screen flex flex-wrap gap-4 mt-4 sm:h-[25.05vw] sm:flex-nowrap sm:gap-0 sm:mt-0">
-            <div id="case" class="h-[30vh] sm:h-full">
-                <img src="../assets/img/case.png" alt />
-            </div>
-            <div id="case" class="h-[30vh] sm:h-full">
-                <img src="../assets/img/case2.png" alt />
-            </div>
-            <div id="case" class="h-[30vh] sm:h-full">
-                <img src="../assets/img/case3.png" alt />
+            <div id="case" class="h-[30vh] sm:h-full" :key="case1.id" v-for=" case1 in homeCaseImg">
+                <img :src="case1.url" alt />
             </div>
         </div>
         <!-- middle -->
@@ -32,15 +26,15 @@
         </div>
         <!-- bottom -->
         <div id="bottom" class="w-screen h-[25.05vw] flex">
-            <div :key="banner" v-for="banner in banners">
-                <img :src="banner" alt />
+            <div :key="case2.id" v-for="case2 in homeCase2Img">
+                <img class=" object-contain" :src="case2.url" />
             </div>
         </div>
         <!-- 轮播图 -->
         <div v-swiper:mySwiper="swiperOption" id="bottomBanner" class=" hidden cursor-pointer">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" :key="banner" v-for="banner in banners">
-                    <img class=" object-contain" :src="banner" />
+                <div class="swiper-slide" :key="case2.id" v-for="case2 in homeCase2Img">
+                    <img class=" object-contain" :src="case2.url" />
                 </div>
             </div>
             <div class="swiper-pagination" slot="pagination"></div>
@@ -57,11 +51,6 @@ export default {
     name: 'About',
     data() {
         return {
-            banners: [
-            new URL("../assets/img/case4.png", import.meta.url).href,
-            new URL("../assets/img/case5.png", import.meta.url).href,
-            new URL("../assets/img/case6.png", import.meta.url).href
-            ],
             swiperOption: {
                 loop : true,
                     navigation: {
@@ -100,7 +89,7 @@ export default {
         //从vuex当中把数据捞到vue组件当中使用
         //从vuex拿到的数据(state 和 getters 当中的东西)，都在computed当中使用
         //从vuex拿到的数据(mutations 和 actions当中的东西)，都在methods当中使用
-        // this.$store.dispatch('getHomeBannerImg')
+        this.$store.dispatch('getHomeBannerImg')
         this.$store.dispatch('getBannerList')
         this.mySwiper.slideTo(3, 1000, false)
         this.mySwiper_2.slideTo(1, 1000, false)
@@ -108,8 +97,14 @@ export default {
     computed:{
         //数据是总state当中的数据 
         ...mapState({
-            homeBannerImg:state => state.home.homeBannerImg
+            //头部录播图
+            homeBannerImg:state => state.home.homeBannerImg,
+            //case1 0-3
+            homeCaseImg : state => state.home.homeCaseImg,
+            //case2 4-6
+            homeCase2Img: state => state.home.homeCase2Img,
         }),
+        //mock
         ...mapState({
             bannerList:state => state.home.bannerList
         })

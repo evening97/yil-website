@@ -1,9 +1,6 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
 import {
     reqXiaoMiData
 } from '../api'
-Vue.use(Vuex)
 const state = {
     //存储数据
     xiaoMiData: []
